@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logged In</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <h1>Welcome {{user.username}}!</h1>
+        <a href="{% url 'myapp:logout' %}">
+            <button>Log Out</button>
+        </a>
+    {% else %}
+        <script>
+            window.location.href = "{% url 'myapp:index' %}"
+        </script>
+    {% endif %}
+</body>
+</html>
